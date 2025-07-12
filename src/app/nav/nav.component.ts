@@ -22,9 +22,10 @@ import { RouterOutlet } from '@angular/router';
     MatIconModule,
     AsyncPipe,
     RouterOutlet
-]
+  ]
 })
 export class NavComponent {
+
   private breakpointObserver = inject(BreakpointObserver);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -32,4 +33,15 @@ export class NavComponent {
       map(result => result.matches),
       shareReplay()
     );
+
+  menuItems = [
+    { label: 'Tableau de bord', icon: 'dashboard' },
+    { label: 'Employés', icon: 'people' },
+    { label: 'Prévisions', icon: 'event' },
+    { label: 'Planning', icon: 'calendar_month' },
+    { label: 'Controle des heures', icon: 'schedule' },
+    { label: 'Rapports', icon: 'bar_chart' },
+    { label: 'Coffre fort', icon: 'lock' },
+    { label: 'Restaurant', icon: 'restaurant' }
+  ];
 }
