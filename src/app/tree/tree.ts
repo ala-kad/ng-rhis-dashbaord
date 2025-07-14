@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+// Material Modules
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -19,7 +20,7 @@ interface FoodNode {
 
 })
 export class Tree {
-  
+
   menuItems = [
     { label: 'Tableau de bord', icon: 'dashboard' },
     { label: 'Employés', icon: 'people' },
