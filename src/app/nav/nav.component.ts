@@ -7,26 +7,38 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { RouterOutlet } from '@angular/router';
 import { Tree } from "../tree/tree";
 
+interface Food {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
   imports: [
+    AsyncPipe,
+    RouterOutlet,
+    Tree,
+    FormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    AsyncPipe,
-    RouterOutlet,
-    Tree
+    MatSelectModule,
+    MatInputModule,
+    MatFormFieldModule,
 ],
 
 })
@@ -49,6 +61,12 @@ export class NavComponent {
     { label: 'Rapports', icon: 'bar_chart' },
     { label: 'Coffre fort', icon: 'lock' },
     { label: 'Restaurant', icon: 'restaurant' }
+  ];
+
+   foods: Food[] = [
+    { value: 'steak-0', viewValue: 'Steak' },
+    { value: 'pizza-1', viewValue: 'Pizza' },
+    { value: 'tacos-2', viewValue: 'Tacos' },
   ];
 }
 
